@@ -6,14 +6,14 @@
 ### Desabilitando sslRequired
 Desativar apenas para execução local. Para produção, não editar essa propriedade.
 
-** Realizar login interno **  
+**Realizar login interno**  
 O comando para realizar o login é:  
 `/opt/jboss/keycloak/bin/kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user admin --password changeit`
 
 Executar automaticamente no docker
 `docker ps | grep treinamento | grep keycloak_1 | awk '{print $1}' | xargs -i docker exec '{}' /opt/jboss/keycloak/bin/kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user admin --password changeit`
 
-** Atualizar o server para desativar sslRequired **
+**Atualizar o server para desativar sslRequired**
 O comando para desativar o sslRequired é
 `docker ps | grep treinamento | grep keycloak_1 | awk '{print $1}' | xargs -i docker exec '{}' /opt/jboss/keycloak/bin/kcadm.sh update realms/master -s sslRequired=NONE`
 
@@ -33,9 +33,9 @@ Mesmo que o Keycloak seja on-premise para um usuário, o realm Zup deverá ser c
 
 Para tal, seguir o tutorial do confluence [https://zupjira.atlassian.net/wiki/spaces/RW/pages/99319992?search_id=0985c1ae-efe1-4edd-aa16-2f988193027f](https://zupjira.atlassian.net/wiki/spaces/RW/pages/99319992?search_id=0985c1ae-efe1-4edd-aa16-2f988193027f)  
 
-** No final da instalação, alterar o Require SSL do realm Zup para none apenas para este treinamento. Em produção, deixar external requests. **  
+**No final da instalação, alterar o Require SSL do realm Zup para none apenas para este treinamento. Em produção, deixar external requests.**  
 
-** Alterar a tela de login para o do realwave **  
+**Alterar a tela de login para o do realwave**  
 
 ## Rodando o IAM
 ```bash
@@ -52,7 +52,7 @@ mvn spring-boot:run -Drun-arguments="keycloak.api.credentials.secret=120a2c7b-d8
 2. Em **Credentials**, colocar uma senha. Desmarcar **Temporary**.
 3. Adicionar todas as roles do client **realwave_iam**.
 
-** Fazer o Download da collection do realwave-iam no realwave-collections **
+**Fazer o Download da collection do realwave-iam no realwave-collections**
 ```bash
 git clone git@github.com:ZupIT/realwave-collections.git
 ```
