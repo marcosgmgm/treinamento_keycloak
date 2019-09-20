@@ -44,7 +44,7 @@ cd realwave-iam
 mvn clean install -DskipTests
 docker-compose up -d postgres
 cd rw-iam-application
-mvn spring-boot:run -Drun-arguments="keycloak.api.credentials.secret=120a2c7b-d8ab-4a08-a87c-bde7fc42b9f0,keycloak.credentials.secret=b730743f-9833-4281-8c83-7e9ff320b84c"
+env KEYCLOAK_API_CREDENTIALS_SECRET=492fe4b9-baa6-41e6-907f-1b1250bfb7c2 KEYCLOAK_CREDENTIALS_SECRET=8ac39395-7b01-49c0-aec8-935b58f14ac8 java -jar target/rw-iam-application.jar
 ```
 
 ## Administrando IAM
