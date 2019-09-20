@@ -35,6 +35,8 @@ Para tal, seguir o tutorial do confluence [https://zupjira.atlassian.net/wiki/sp
 
 ** No final da instalação, alterar o Require SSL do realm Zup para none apenas para este treinamento. Em produção, deixar external requests. **  
 
+** Alterar a tela de login para o do realwave **  
+
 ## Rodando o IAM
 ```bash
 git clone git@github.com:ZupIT/realwave-iam.git
