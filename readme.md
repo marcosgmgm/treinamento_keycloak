@@ -10,11 +10,11 @@ Desativar apenas para execução local. Para produção, não editar essa propri
 O comando para realizar o login é:  
 `/opt/jboss/keycloak/bin/kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user admin --password changeit`
 
-Executar automaticamente no docker
+Executar automaticamente no docker  
 `docker ps | grep treinamento | grep keycloak_1 | awk '{print $1}' | xargs -i docker exec '{}' /opt/jboss/keycloak/bin/kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user admin --password changeit`
 
-**Atualizar o server para desativar sslRequired**
-O comando para desativar o sslRequired é
+**Atualizar o server para desativar sslRequired**  
+O comando para desativar o sslRequired é  
 `docker ps | grep treinamento | grep keycloak_1 | awk '{print $1}' | xargs -i docker exec '{}' /opt/jboss/keycloak/bin/kcadm.sh update realms/master -s sslRequired=NONE`
 
 ## Setup inicial
