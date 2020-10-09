@@ -34,7 +34,33 @@ Este client será o _usuário_ admin que o **realmwave-iam** irá utilizar para 
 ### Criando o realm Zup
 Mesmo que o Keycloak seja on-premise para um usuário, o realm Zup deverá ser criado.
 
-Para tal, seguir o tutorial do confluence [https://zupjira.atlassian.net/wiki/spaces/RW/pages/99319992?search_id=0985c1ae-efe1-4edd-aa16-2f988193027f](https://zupjira.atlassian.net/wiki/spaces/RW/pages/99319992?search_id=0985c1ae-efe1-4edd-aa16-2f988193027f)  
+Para tal, clique em "Add Realm" e crie com o nome "zup".
+
+É necessario criar o client **realwave-iam** com suas roles para dar permissão para usuarios e modulos realizarem interações com aplicações, modulos, grupos, roles, etc.
+
+1. Criar client `realwave_iam`
+2. Trocar **Access Type** para **confidential**
+3. Desativar **Standard Flow Enabled**
+4. Desativar **Direct Access Grants Enabled**
+5. Ativar **Service Accounts Enabled** (isso cria um usuário pro IAM por debaixo dos panos e permite ter roles)
+6. Criar as roles de acordo com a tabela abaixo: 
+
+|Role Name	|	Description	|
+|-----------|-------------|
+|iam_module_modifier		| modify modules|
+|iam_application_modifier	|	Allows modify applications|
+|iam_auth_modifier |	Allows modifying authorization	|
+|iam_application_reader	|	Allows read/list all applications	|
+|iam_role_modifier	|	Allows modify roles	|
+|iam_module_reader	|	Allows read/list all modules	|
+|iam_group_modifier	|	Allows modify group	|
+|iam_role_reader	|	Allows read/list all roles	|
+|iam_user_modifier	|	Allows create users	|
+|iam_group_reader	|	Allows read/list all group	|
+|iam_user_reader	|	Allows read/list all user|
+|iam_realm_modifier	|	Allows create realms|
+
+
 
 **No final da instalação, alterar o Require SSL do realm Zup para none apenas para este treinamento. Em produção, deixar external requests.**  
 
